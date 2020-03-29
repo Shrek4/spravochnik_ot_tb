@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sen', sans-serif;
+}
+
+header {
+    background-color: rgba(224, 209, 209, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.logotype {
+    padding: 5px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.menu {
+    font-size: large;
+    display: flex;
+    color: black;
+    justify-content: space-between;
+}
+
+.menu>a {
+    padding: 5%;
+    color: black;
+    text-decoration: none;
+}
+
+.menu>a:hover {
+    border-bottom: 2px black solid;
+}
+
+.mymenu {
+    display: none;
+}
+
+.mymenu>a {
+    color: black;
+    text-decoration: none;
+}
+
+.main-text {
+    text-align: center;
+    margin: 3%;
+}
+
+.content {
+    margin-top: 3%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    flex-basis: content;
+}
+
+.content>.main-content {
+    display: none;
+}
+
+.electric {
+    display: flex;
+    justify-content: space-between;
+}
+
+.electric>img {
+    width: 20%;
+    height: 20%;
+}
+
+.content>div {
+    padding: 2%;
+    opacity: 0;
+    margin: 3%;
+    border: 2px solid rgba(27, 27, 27, 0.7);
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+
+.theme,
+.task,
+.members,
+.roles,
+.process,
+.project_links {
+    align-self: flex-start;
+}
+
+.members>ul>a {
+    text-decoration: none;
+    color: black;
+}
+
+.members>ul>li,
+.process>ol>li,
+.roles>ul>li {
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-top: 1%;
+}
+
+@media screen and (max-width:768px) {
+    body {
+        overflow-y: visible;
+    }
+    .mymenu {
+        display: block;
+        font-size: xx-large;
+    }
+    .menu {
+        flex-direction: column;
+        display: none;
+        opacity: 0;
+        background-color: blanchedalmond;
+        border: 2px solid black;
+        border-left: none;
+    }
+    .menu>a:hover:not(:last-child) {
+        border-bottom: 2px black solid;
+    }
+    .links {
+        opacity: 0;
+    }
+    .content {
+        flex-flow: column;
+    }
+    .content>div {
+        padding: 10%;
+    }
+    .main-text {
+        text-align: start;
+        border: 2px dotted rgba(27, 27, 27, 0.7);
+        border-radius: 10px;
+        word-wrap: break-word;
+    }
+    .electric>img {
+        width: 30%;
+        height: 30%;
+    }
+}
