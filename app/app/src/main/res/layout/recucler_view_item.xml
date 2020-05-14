@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:background="#C1CACB"
+        android:text="Item"
+        android:paddingLeft="30dp"
+        android:paddingStart="30dp"
+        android:padding="?android:listPreferredItemPaddingLeft"
+        android:textSize="18sp"
+        android:id="@+id/itemTextView"
+        />
+</FrameLayout>
