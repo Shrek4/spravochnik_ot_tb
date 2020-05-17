@@ -15,6 +15,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class tb extends AppCompatActivity {
+    private int id;
+
     private String pageTitle;
     private String pageName;
     private String tbName;
@@ -32,12 +34,23 @@ public class tb extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tb);
 
+        // Получаем ид
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+        this.id = extras.getInt("id");
+
         tv_pageTitle = findViewById(R.id.page_title);
         tv_pageName = findViewById(R.id.page_name);
         tv_tbName = findViewById(R.id.tb_name);
         layout = findViewById(R.id.linerForText);
         btnBack = findViewById(R.id.back_button);
 
+        // Получаем текст
+        if(id == 0){
+            // Тут надо прикрутить БД...
+        }
         pageTitle = "Техника безопасности";
         pageName = "Токарный станок";
         tbName = "Инструкция по охране труда при работе на токарных станках";
@@ -125,6 +138,7 @@ public class tb extends AppCompatActivity {
                 "5.2 Привести в порядок рабочее место.\n" +
                 "5.3 Выполнить упражнения для глаз и пальцев рук на расслабление.\n");
 
+        //Выводим на экран
         for (int i = 0; i < titles.size(); i++){
             TextView tv_title = new TextView(new ContextThemeWrapper(tb.this, R.style.tb_name));
             tv_title.setText(titles.get(i));
@@ -142,7 +156,7 @@ public class tb extends AppCompatActivity {
         btnBack.setOnClickListener(backClick);
     }
 
-
+    //Закрываем по клику
     OnClickListener backClick = new OnClickListener() {
         @Override
         public void onClick(View v) {

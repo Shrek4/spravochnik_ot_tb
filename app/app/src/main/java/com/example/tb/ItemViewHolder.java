@@ -10,6 +10,8 @@ public class ItemViewHolder extends ChildViewHolder {
     private TextView mTextView;
     private View thisView;
     public MainActivity context;
+    public int id;
+    public String group;
 
     public ItemViewHolder(View itemView) {
         super(itemView);
@@ -22,12 +24,21 @@ public class ItemViewHolder extends ChildViewHolder {
     public void bind(Item item){
         mTextView.setText(item.name);
         this.context = item.context;
+        this.id = item.id;
+        this.group = item.group;
     }
 
     private View.OnClickListener clikcer = new View.OnClickListener() {
         public void onClick(View v) {
+        if(group == "tb"){
             Intent myIntent = new Intent(context, tb.class);
+            myIntent.putExtra("id", id);
             context.startActivity(myIntent);
+        } else if(group == "check"){
+            Intent myIntent = new Intent(context, check.class);
+            myIntent.putExtra("id", id);
+            context.startActivity(myIntent);
+        }
         }
     };
 }

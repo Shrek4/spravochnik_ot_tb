@@ -6,10 +6,14 @@ import android.os.Parcelable;
 public class Item implements Parcelable {
     public final String name;
     public MainActivity context;
+    public int id;
+    public String group;
 
-    public Item(String name, MainActivity context) {
+    public Item(String name, MainActivity context, int id, String group) {
         this.name = name;
         this.context = context;
+        this.id = id;
+        this.group = group;
     }
 
     protected Item(Parcel in) {

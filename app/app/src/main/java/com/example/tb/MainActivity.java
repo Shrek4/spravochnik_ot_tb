@@ -20,14 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Group> groups = new ArrayList<>();
 
-        ArrayList<Item> items = new ArrayList<>();
-        items.add(new Item("Персональный компьютер",this));
-        items.add(new Item("Токарный станок",this));
-        items.add(new Item("Хим. Оборудование",this));
+        ArrayList<Item> itemsTb = new ArrayList<>();
+        itemsTb.add(new Item("Персональный компьютер",this,0,"tb"));
+        itemsTb.add(new Item("Токарный станок",this,1,"tb"));
+        itemsTb.add(new Item("Хим. Оборудование",this,2,"tb"));
 
-        Group tb = new Group("Техника безопасности ",items);
-        Group check = new Group("Чек-лист ",items);
-        Group test = new Group("Тест ",items);
+        ArrayList<Item> itemsCheck = new ArrayList<>();
+        itemsCheck.add(new Item("Персональный компьютер",this,0,"check"));
+        itemsCheck.add(new Item("Токарный станок",this,1,"check"));
+        itemsCheck.add(new Item("Хим. Оборудование",this,2,"check"));
+
+        ArrayList<Item> itemsTest = new ArrayList<>();
+        itemsTest.add(new Item("Персональный компьютер",this,0,"test"));
+        itemsTest.add(new Item("Токарный станок",this,1,"test"));
+        itemsTest.add(new Item("Хим. Оборудование",this,2,"test"));
+
+        Group tb = new Group("Техника безопасности ",itemsTb);
+        Group check = new Group("Чек-лист ",itemsCheck);
+        Group test = new Group("Тест ",itemsTest);
 
         groups.add(tb);
         groups.add(check);
