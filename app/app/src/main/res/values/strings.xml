@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">tb</string>
     <string name="toolbar_lebel">Справочник ОТиТБ</string>
+    <string name="exitbuttontext">В главное меню</string>
 </resources>

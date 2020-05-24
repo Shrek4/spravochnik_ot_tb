@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".tb" />
+        <activity android:name=".test" />
         <activity android:name=".MainActivity"></activity>
     </application>
 

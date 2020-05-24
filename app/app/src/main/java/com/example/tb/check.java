@@ -49,9 +49,15 @@ public class check extends AppCompatActivity {
         // Получаем текст
         if(id == 0){
             // Тут надо прикрутить БД...
+            pageName = "Персональный компьютер";
+        }
+        else if(id==1){
+            pageName = "Токарный станок";
+        }
+        else if(id==2){
+            pageName = "Хим. оборудование";
         }
         pageTitle = "Чек-лист";
-        pageName = "Токарный станок";
 
         tv_pageTitle.setText(pageTitle);
         tv_pageName.setText(pageName);

@@ -38,6 +38,10 @@ public class ItemViewHolder extends ChildViewHolder {
             Intent myIntent = new Intent(context, check.class);
             myIntent.putExtra("id", id);
             context.startActivity(myIntent);
+        } else if(group == "test"){
+            Intent myIntent = new Intent(context, test.class);
+            myIntent.putExtra("id", id);
+            context.startActivity(myIntent);
         }
         }
     };

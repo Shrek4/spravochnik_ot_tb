@@ -50,9 +50,15 @@ public class tb extends AppCompatActivity {
         // Получаем текст
         if(id == 0){
             // Тут надо прикрутить БД...
+            pageName = "Персональный компьютер";
+        }
+        else if(id==1){
+            pageName = "Токарный станок";
+        }
+        else if(id==2){
+            pageName = "Хим. оборудование";
         }
         pageTitle = "Техника безопасности";
-        pageName = "Токарный станок";
         tbName = "Инструкция по охране труда при работе на токарных станках";
 
         tv_pageTitle.setText(pageTitle);
