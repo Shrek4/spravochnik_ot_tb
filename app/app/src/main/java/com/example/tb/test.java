@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -197,7 +198,7 @@ public class test extends AppCompatActivity {
         questions2[49]="Должен ли работник немедленно извещать своего руководителя об ухудшении состояния своего здоровья, в том числе о проявлении признаков острого профессионального заболевания (отравления)?";
 
         questions3[0]="К выполнению работ на биохимическом анализаторе SAPPHIR-400 допускаются работники не моложе:";
-        questions3[1]="Что не входит а необходимую подготовку работника?";
+        questions3[1]="Что не входит в необходимую подготовку работника?";
         questions3[2]="Какую группу должен получить работник после инструктажа по электробезопасности?";
         questions3[3]="К самостоятельной работе не допускается работник, не прошедший своевременно:";
         questions3[4]="Персонал лаборатории не обязан выполнять требования завода-изготовителя по эксплуатации применяемого в процессе работы:";
@@ -412,24 +413,6 @@ public class test extends AppCompatActivity {
         tv_pageTitle.setText(pageTitle);
         tv_pageName.setText(pageName);
 
-//        ArrayList<String> questions = new ArrayList<>();
-//        questions.add("1. ыы");
-//        questions.add("2. Игорь");
-//        questions.add("3. сас");
-//        questions.add("4. уфф");
-//
-//        TextView tv_before = new TextView(new ContextThemeWrapper(test.this, R.style.tb_name));
-//        tv_before.setText("А?");
-//        ((LinearLayout) layout).addView(tv_before);
-//        //Выводим на экран
-//        for (int i = 0; i < questions.size(); i++){
-//            CheckBox cb_test = new CheckBox(new ContextThemeWrapper(test.this, R.style.checkbox));
-//            cb_test.setText(questions.get(i));
-//            cb_test.setButtonDrawable(R.drawable.check_box_selector);
-//            cb_test.setId(8000+i);
-//            ((LinearLayout) layout).addView(cb_test);
-//
-//        }
 
         btnBack.setOnClickListener(backClick);
         btnqBack.setOnClickListener(qBackClick);
@@ -475,12 +458,21 @@ public class test extends AppCompatActivity {
                 abutton3.setText(tanswers3[cquestion][2]);
                 abutton4.setText(tanswers3[cquestion][3]);
             }
+
+            if(btnqForward.getVisibility()==View.INVISIBLE)
+            {
+                rgroup.setVisibility(View.VISIBLE);
+                result.setVisibility(View.INVISIBLE);
+                exitbutton.setVisibility(View.INVISIBLE);
+                btnqForward.setVisibility(View.VISIBLE);
+                rightanswers=0;
+            }
         }
     };
     View.OnClickListener qForwardClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(cquestion<49)
+            if((id!=2)&&(cquestion<49))
             {
                 cquestion++;
                 abutton1.setChecked(false);
@@ -503,20 +495,14 @@ public class test extends AppCompatActivity {
                     abutton3.setText(tanswers2[cquestion][2]);
                     abutton4.setText(tanswers2[cquestion][3]);
                 }
-                else if(id==2){
-                    numquestion.setText((cquestion+1)+"/"+questions3.length);
-                    textquestion.setText(questions3[cquestion]);
-                    abutton1.setText(tanswers3[cquestion][0]);
-                    abutton2.setText(tanswers3[cquestion][1]);
-                    abutton3.setText(tanswers3[cquestion][2]);
-                    abutton4.setText(tanswers3[cquestion][3]);
-                }
             }
-            else {
+            else if ((id!=2)&&(cquestion==49))
+            {
                 rgroup.setVisibility(View.INVISIBLE);
                 result.setVisibility(View.VISIBLE);
                 exitbutton.setVisibility(View.VISIBLE);
                 textquestion.setText("Тест окончен!");
+                btnqForward.setVisibility(View.INVISIBLE);
                 switch (id)
                 {
                     case 0:
@@ -529,19 +515,40 @@ public class test extends AppCompatActivity {
                     case 1:
                         for(int i=0; i<answers2.length; i++)
                         {
-                            if(answers2[i]==ranswers1[i]) rightanswers++;
+                            if(answers2[i]==ranswers2[i]) rightanswers++;
                         };
                         result.setText("Ваш результат: "+rightanswers+"/"+questions2.length);
                     break;
-                    case 2:
-                        for(int i=0; i<answers3.length; i++)
-                        {
-                            if(answers3[i]==ranswers1[i]) rightanswers++;
-                        };
-                        result.setText("Ваш результат: "+rightanswers+"/"+questions3.length);
-                    break;
                 }
-            };
+            }
+            else if ((id==2)&&(cquestion<36))
+            {
+                cquestion++;
+                abutton1.setChecked(false);
+                abutton2.setChecked(false);
+                abutton3.setChecked(false);
+                abutton4.setChecked(false);
+
+                numquestion.setText((cquestion+1)+"/"+questions3.length);
+                textquestion.setText(questions3[cquestion]);
+                abutton1.setText(tanswers3[cquestion][0]);
+                abutton2.setText(tanswers3[cquestion][1]);
+                abutton3.setText(tanswers3[cquestion][2]);
+                abutton4.setText(tanswers3[cquestion][3]);
+            }
+            else if((id==2)&&(cquestion==36))
+            {
+                rgroup.setVisibility(View.INVISIBLE);
+                result.setVisibility(View.VISIBLE);
+                exitbutton.setVisibility(View.VISIBLE);
+                textquestion.setText("Тест окончен!");
+                btnqForward.setVisibility(View.INVISIBLE);
+                for(int i=0; i<answers3.length; i++)
+                {
+                    if(answers3[i]==ranswers3[i]) rightanswers++;
+                };
+                result.setText("Ваш результат: "+rightanswers+"/"+questions3.length);
+            }
         }
     };
     //endregion
