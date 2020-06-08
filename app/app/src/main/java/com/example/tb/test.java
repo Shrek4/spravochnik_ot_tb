@@ -381,7 +381,6 @@ public class test extends AppCompatActivity {
 
 
         if(id == 0){
-            // Тут надо прикрутить БД...
             pageName = "Персональный компьютер";
             numquestion.setText("1/50");
             textquestion.setText(questions1[0]);
